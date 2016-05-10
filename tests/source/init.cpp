@@ -2,9 +2,10 @@
 #include <Node.hpp>
 
 SCENARIO("Tree init", "[init]") {
-Tree inttree;
-inttree.input("in.txt");
-	
+         Tree inttree;
+         bool mark=false;
+         mark=inttree.input("in.txt");
+	 REQUIRE(mark);
 }
 /*
 SCENARIO("Matrix >>", "[fill]") {
