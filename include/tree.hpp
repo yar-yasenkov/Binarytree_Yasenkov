@@ -9,7 +9,7 @@ public:
 	Tree();                                                    /* êîíñòðóêòîð */
 	
 	int insert_node(const int &);                         /* âñòàâëÿåò óçåë */
-	bool input(char[256]);
+	bool input(string);
 	void output(TreeNode*);
 	void inorder_walk(TreeNode*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode* find_node(TreeNode*, const int &);
@@ -25,14 +25,14 @@ Tree::Tree()
 }
 
 
-bool Tree::input(char name[256])
+bool Tree::input(string name)
 {
         
-	char fulpath[256] = "D:\\labiu8\\2 ñåì\\Binarysearchtree\\Debug\\";
+	//char fulpath[256] = "D:\\labiu8\\2 ñåì\\Binarysearchtree\\Debug\\";
 	int a;
 	fstream fin;
-	strcat_s(fulpath, name);
-	fin.open(fulpath, ios::in);//îòêðûòèå ôàéëà
+	//strcat_s(fulpath, name);
+	fin.open(name, ios::in);//îòêðûòèå ôàéëà
 	if (fin.is_open())
 	{
 		while (!fin.eof())
@@ -40,7 +40,7 @@ bool Tree::input(char name[256])
 			fin >> a;
 			insert_node(a);
 		}
-	};
+	}
 	else 
 	{
 		return false;
