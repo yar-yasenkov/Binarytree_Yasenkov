@@ -19,5 +19,4 @@ using namespace std;
 	cout << endl << "inorder_walk:" << endl;              
 	intTree.inorder_walk(intTree.get_root());
 	system("pause");
-
 }*/
