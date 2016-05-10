@@ -1,3 +1,5 @@
+#ifndef A_H_INCLUDED 
+#define A_H_INCLUDED
  class TreeNode
 {
 	friend class Tree;
@@ -6,10 +8,10 @@ public:
 	TreeNode(const int &);
 	int get_data();
 protected:
-	TreeNode* left;           /* указатель на левого ребенка */
-	TreeNode* right;          /* указатель на правого ребенка */
-	TreeNode* parent;         /* указатель на родителя */
-	int data;            /* ключ */
+	TreeNode* left;           /* ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  Г«ГҐГўГ®ГЈГ® Г°ГҐГЎГҐГ­ГЄГ  */
+	TreeNode* right;          /* ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  ГЇГ°Г ГўГ®ГЈГ® Г°ГҐГЎГҐГ­ГЄГ  */
+	TreeNode* parent;         /* ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  Г°Г®Г¤ГЁГІГҐГ«Гї */
+	int data;            /* ГЄГ«ГѕГ· */
 };
 
  TreeNode::TreeNode() :data(0), left(0), right(0)
@@ -24,3 +26,4 @@ int TreeNode::get_data()
 {
 	return data;
 }
+#endif
