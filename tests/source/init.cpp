@@ -1,26 +1,12 @@
-#include <Matrix.hpp>
-#include <catch.hpp>
+#include <tree.hpp>
+#include <Node.hpp>
 
-SCENARIO("Matrix init", "[init]") {
-
-	GIVEN("The number of rows and columns") {
-
-		auto rows = 3;
-		auto columns = 3;
-
-		WHEN("Create instansce of Matrix") {
-
-			Matrix matrix(rows, columns);
-
-			THEN("The number of rows and columns must be preserved") {
-
-				REQUIRE(matrix.rows() == rows);
-				REQUIRE(matrix.columns() == columns);
-			}
-		}
-	}
+SCENARIO("Tree init", "[init]") {
+Tree inttree;
+inttree.input("in.txt");
+	
 }
-
+/*
 SCENARIO("Matrix >>", "[fill]") {
 	Matrix A = Matrix(2, 2);
 	REQUIRE( A.fill("A2x2.txt") );
@@ -37,3 +23,4 @@ SCENARIO("Matrix +", "[addition]") {
 	Matrix result = A + B;
 	REQUIRE(result == expected);
 }
+*/
