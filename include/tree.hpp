@@ -9,7 +9,7 @@ public:
 	Tree();                                                    /* êîíñòðóêòîð */
 	
 	int insert_node(const int &);                         /* âñòàâëÿåò óçåë */
-	void input(char[256]);
+	bool input(char[256]);
 	void output(TreeNode*);
 	void inorder_walk(TreeNode*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode* find_node(TreeNode*, const int &);
