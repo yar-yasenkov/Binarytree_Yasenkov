@@ -1,5 +1,7 @@
 #include <tree.hpp>
 #include <Node.hpp>
+#include <catch.hpp>
+
 
 SCENARIO("Tree init", "[init]") {
          Tree inttree;
