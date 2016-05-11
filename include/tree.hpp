@@ -70,7 +70,7 @@ bool Tree<T>::output(TreeNode<T>* n)
 }
 
 template <typename T>
-bool Tree<T>::insert_node(const int &x)
+bool Tree<T>::insert_node(const T &x)
 {
 	TreeNode<T>* n = new TreeNode<T>(x);  
 	TreeNode<T>* ptr;
