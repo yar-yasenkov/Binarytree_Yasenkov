@@ -48,4 +48,17 @@ SCENARIO("inorder walkd","[inotderd]") {
 	REQUIRE(mark);
 }
 
+SCENARIO("Exception","[except]") {
+	bool marker=false;
+	Tree<int> inttree;
+	try
+	{
+		inttree.input("aavavasvas.txt");
+	}
+	catch (Tree<int>::Except & e)
+	{
+	    marker=true;
+	}
+	REQUIRE(marker);
+}
 
