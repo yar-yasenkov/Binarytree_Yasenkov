@@ -1,35 +1,38 @@
-#include "Node.hpp"
+
 #include <iostream>
 #include <fstream>
+template <typename T> class Tree;
+#include "Node.hpp"
 using namespace std;
 
+template <typename T>
 class Tree
 {
 public:
 	Tree();                                                    /* êîíñòðóêòîð */
 	
-	bool insert_node(const int &);                         /* âñòàâëÿåò óçåë */
+	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
 	bool input(string);
-	bool output(TreeNode*);
-	bool inorder_walk(TreeNode*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
-	TreeNode* find_node(TreeNode*, const int &);
-	TreeNode *get_root();                            /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
+	bool output(TreeNode<T>*);
+	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
+	TreeNode<T>* find_node(TreeNode<T>*, const T &);
+	TreeNode<T> *get_root();                            /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
 private:
-	TreeNode *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
+	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
 
-
-Tree::Tree()
+template <typename T>
+Tree<T>::Tree()
 {
 	root = 0;                      /* â íà÷àëå äåðåâî ïóñòî */
 }
 
-
-bool Tree::input(string name)
+template <typename T>
+bool Tree<T>::input(string name)
 {
         
 	//char fulpath[256] = "D:\\labiu8\\2 ñåì\\Binarysearchtree\\Debug\\";
-	int a;
+	T a;
 	fstream fin;
 	//strcat_s(fulpath, name);
 	fin.open(name, ios::in);//îòêðûòèå ôàéëà
@@ -49,7 +52,8 @@ bool Tree::input(string name)
 	return true;
 }
 
-bool Tree::output(TreeNode* n)
+template <typename T>
+bool Tree<T>::output(TreeNode<T>* n)
 {
 	bool marker=false;
 	ofstream fout;
@@ -65,12 +69,12 @@ bool Tree::output(TreeNode* n)
 	return marker;
 }
 
-
-bool Tree::insert_node(const int &x)
+template <typename T>
+bool Tree<T>::insert_node(const int &x)
 {
-	TreeNode* n = new TreeNode(x);  
-	TreeNode* ptr;
-	TreeNode* ptr1 = 0;
+	TreeNode<T>* n = new TreeNode<T>(x);  
+	TreeNode<T>* ptr;
+	TreeNode<T>* ptr1 = 0;
 	n->parent = n->left = n->right = 0;          
 	ptr = root;
 	while (ptr != 0)                     
@@ -94,9 +98,9 @@ bool Tree::insert_node(const int &x)
 	return true;
 }
 
-
-TreeNode* Tree::find_node(TreeNode* n,
-	const int & val)
+template <typename T>
+TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
+	const T & val)
 {
 	if (n == 0 || val == n->get_data())
 		return n;
@@ -106,7 +110,8 @@ TreeNode* Tree::find_node(TreeNode* n,
 		return find_node(n->left, val);
 }
 
-bool Tree::inorder_walk(TreeNode* n)
+template <typename T>
+bool Tree<T>::inorder_walk(TreeNode<T>* n)
 {
 	bool marker=false;
 	if (n != 0)
@@ -119,8 +124,8 @@ bool Tree::inorder_walk(TreeNode* n)
 	return marker;
 }
 
-
-TreeNode* Tree::get_root()
+template <typename T>
+TreeNode<T>* Tree<T>::get_root()
 {
 	return root;
 }
