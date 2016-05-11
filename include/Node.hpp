@@ -14,9 +14,11 @@ protected:
 	T data;            /* êëþ÷ */
 };
 
- TreeNode::TreeNode() :data(0), left(0), right(0)
+template <typename T>
+ TreeNode<T>::TreeNode() :data(0), left(0), right(0)
  {}
-TreeNode::TreeNode(const T &a)
+template <typename T>
+TreeNode<T>::TreeNode(const T &a)
 {
 	data = a;
 	left = right = 0;
