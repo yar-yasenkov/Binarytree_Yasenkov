@@ -8,7 +8,7 @@ class Tree
 public:
 	Tree();                                                    /* êîíñòðóêòîð */
 	
-	int insert_node(const int &);                         /* âñòàâëÿåò óçåë */
+	bool insert_node(const int &);                         /* âñòàâëÿåò óçåë */
 	bool input(string);
 	void output(TreeNode*);
 	void inorder_walk(TreeNode*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
@@ -63,23 +63,23 @@ void Tree::output(TreeNode* n)
 }
 
 
-int Tree::insert_node(const int &x)
+bool Tree::insert_node(const int &x)
 {
-	TreeNode* n = new TreeNode(x);  /* ñîçäàåì íîâûé óçåë, åãî ìû áóäåì âñòàâëÿòü */
+	TreeNode* n = new TreeNode(x);  
 	TreeNode* ptr;
 	TreeNode* ptr1 = 0;
-	n->parent = n->left = n->right = 0;          /* îí - ëèñò */
+	n->parent = n->left = n->right = 0;          
 	ptr = root;
-	while (ptr != 0)                     /* èäåì îò êîðíÿ è èùåì ïîäõîäÿùåå ìåñòî äëÿ íàøåãî íîâîãî ýëåìåíòà, îíî äîëæíî áûòü ñâîáîäíî */
+	while (ptr != 0)                     
 	{
-		ptr1 = ptr;                 /* áóäóùèé ðîäèòåëü íîâîãî óçëà */
-		if (x < ptr->get_data())  /* ïî îïðåäåëåíèþ íàøåãî äåðåâà - ñëåâà çíà÷åíèå êëþ÷à ìåíüøå ðîäèòåëÿ, */
+		ptr1 = ptr;                 
+		if (x < ptr->get_data())  
 			ptr = ptr->left;
 		else
-			ptr = ptr->right;   /* ñïðàâà - áîëüøå */
+			ptr = ptr->right;  
 	}
 	n->parent = ptr1;
-	if (ptr1 == 0)                       /* äåðåâî áûëî ïóñòî? */
+	if (ptr1 == 0)                      
 		root = n;
 	else
 	{
@@ -88,16 +88,8 @@ int Tree::insert_node(const int &x)
 		else
 			ptr1->right = n;
 	}
-	return 0;
+	return true;
 }
-
-/* âîçìîæíû òðè ñëó÷àÿ - åñëè ó z íåò äåòåé, òî ïîìåùàåì 0 â ñîîòâåòñòâóþùåå ïîëå
-* ðîäèòåëÿ z, åñëè ó z åñòü îäèí ðåáåíîê, òî ìîæíî âûðåçàòü z, ñîåäèíèâ åãî ðîäèòåëÿ íàïðÿìóþ ñ
-* åãî ðåáåíêîì. Åñëè æå äåòåé äâîå, òî òðåáóþòñÿ íåêîòîðûå ïðèãîòîâëåíèÿ: ìû íàõîäèì ñëåäóþùèé
-* (â ñìûñëå ïîðÿäêà íà êëþ÷àõ) çà z ýëåìåíò y; ó íåãî íåò ëåâîãî ðåáåíêà (âñåãäà). Òåïåðü ìîæíî
-* ñêîïèðîâàòü êëþ÷ è äîïîëíèòåëüíûå äàííûå èç âåðøèíû y â âåðøèíó z, à ñàìó âåðøèíó y óäàëèòü
-* îïèñàííûì âûøå ñïîñîáîì */
-
 
 
 TreeNode* Tree::find_node(TreeNode* n,
