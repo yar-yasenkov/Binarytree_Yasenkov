@@ -44,10 +44,6 @@ bool Tree<T>::input(string name) throw(Except &)
 {
 	T a;
 	fstream fin;
-	if ((strcmp(name,"in.txt"))!=0)||(strcmp(name,"doublein.txt"))!=0))
-	{
-		throw Except();
-	}
 	fin.open(name, ios::in);//îòêðûòèå ôàéëà
 	if (fin.is_open())
 	{
@@ -59,6 +55,7 @@ bool Tree<T>::input(string name) throw(Except &)
 	}
 	else 
 	{
+		throw Except();
 		return false;
 	}
 	fin.close();
