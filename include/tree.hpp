@@ -10,8 +10,8 @@ public:
 	
 	bool insert_node(const int &);                         /* âñòàâëÿåò óçåë */
 	bool input(string);
-	void output(TreeNode*);
-	void inorder_walk(TreeNode*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
+	bool output(TreeNode*);
+	bool inorder_walk(TreeNode*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode* find_node(TreeNode*, const int &);
 	TreeNode *get_root();                            /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
 private:
@@ -49,8 +49,9 @@ bool Tree::input(string name)
 	return true;
 }
 
-void Tree::output(TreeNode* n)
+bool Tree::output(TreeNode* n)
 {
+	bool marker=false;
 	ofstream fout;
 	fout.open("out.txt");
 	if (n != 0)
@@ -58,8 +59,10 @@ void Tree::output(TreeNode* n)
 		inorder_walk(n->left);
 		fout << n->get_data() << endl;
 		inorder_walk(n->right);
+	        marker=true;
 	}
 	fout.close();
+	return marker;
 }
 
 
@@ -103,14 +106,17 @@ TreeNode* Tree::find_node(TreeNode* n,
 		return find_node(n->left, val);
 }
 
-void Tree::inorder_walk(TreeNode* n)
+bool Tree::inorder_walk(TreeNode* n)
 {
+	bool marker=false;
 	if (n != 0)
 	{
 		inorder_walk(n->left);
 		cout << n->get_data() << endl;
 		inorder_walk(n->right);
+		marker=true;
 	}
+	return marker;
 }
 
 
