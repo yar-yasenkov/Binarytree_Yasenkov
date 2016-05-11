@@ -10,6 +10,12 @@ SCENARIO("Tree init", "[init]") {
 	 REQUIRE(mark);
 }
 
+SCENARIO("doubleTree init", "[init]") {
+	Tree<double> dtree;
+	bool mark=false;
+         mark=inttree.input("indouble.txt");
+	 REQUIRE(mark);
+}
 SCENARIO("Insert node","[insert]") {
 	Tree<int> inttree;
 	bool mark=false;
@@ -24,6 +30,8 @@ SCENARIO("Output tree","[output]") {
 	mark=inttree.output(inttree.get_root());
 	REQUIRE(mark);
 }
+
+
 SCENARIO("inorder walk","[inorder]") {
 	Tree<int> inttree;
 	inttree.input("in.txt");
@@ -32,5 +40,12 @@ SCENARIO("inorder walk","[inorder]") {
 	REQUIRE(mark);
 }
 
+SCENARIO("inorder walkd","[inotderd]") {
+	Tree<double> dtree;
+	dtree.input("indouble.txt");
+	bool mark=false;
+	mark=dtree.inorder_walk(dtree.get_root());
+	REQUIRE(mark);
+}
 
 
