@@ -40,7 +40,7 @@ Tree<T>::Tree()
 }
 
 template <typename T>
-bool Tree<T>::input(string name)
+bool Tree<T>::input(string name) throw(Except &)
 {
 	T a;
 	fstream fin;
