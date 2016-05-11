@@ -19,12 +19,14 @@ SCENARIO("Insert node","[insert]") {
 
 SCENARIO("Output tree","[output]") {
 	Tree inttree;
+	inttree.input("in.txt");
 	bool mark=false;
 	mark=inttree.output(inttree.get_root());
 	REQUIRE(mark);
 }
 SCENARIO("inorder walk","[inorder]") {
 	Tree inttree;
+	inttree.input("in.txt");
 	bool mark=false;
 	mark=inttree.inorder_walk(inttree.get_root());
 	REQUIRE(mark);
