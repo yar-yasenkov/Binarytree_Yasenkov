@@ -9,15 +9,8 @@ template <typename T>
 class Tree
 {
 public:
-	Tree();                                                    /* êîíñòðóêòîð */
-	
-	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
-	bool input(string);
-	bool output(TreeNode<T>*);
-	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
-	TreeNode<T>* find_node(TreeNode<T>*, const T &);
-	TreeNode<T> *get_root();                            /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
-        class Exept
+                     /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
+        class Except
         {
         	public:
         	void reportfile()
@@ -28,6 +21,14 @@ public:
         	
         	
         };
+        
+        Tree();                                                    /* êîíñòðóêòîð */
+	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
+	bool input(string) throw(Except &);
+	bool output(TreeNode<T>*);
+	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
+	TreeNode<T>* find_node(TreeNode<T>*, const T &);
+	TreeNode<T> *get_root();       
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
@@ -41,11 +42,12 @@ Tree<T>::Tree()
 template <typename T>
 bool Tree<T>::input(string name)
 {
-        
-	//char fulpath[256] = "D:\\labiu8\\2 ñåì\\Binarysearchtree\\Debug\\";
 	T a;
 	fstream fin;
-	//strcat_s(fulpath, name);
+	if ((strcmp(name,"in.txt"))!=0)||(strcmp(name,"doublein.txt"))!=0))
+	{
+		throw Except();
+	}
 	fin.open(name, ios::in);//îòêðûòèå ôàéëà
 	if (fin.is_open())
 	{
