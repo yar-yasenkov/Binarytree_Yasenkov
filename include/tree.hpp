@@ -17,6 +17,17 @@ public:
 	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	TreeNode<T> *get_root();                            /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
+        class Exept
+        {
+        	public:
+        	void reportfile()
+        	{
+        		cout << "This value does not exist" << endl;
+			return ;
+        	}
+        	
+        	
+        };
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
