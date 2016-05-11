@@ -13,7 +13,7 @@ SCENARIO("Tree init", "[init]") {
 SCENARIO("doubleTree init", "[init]") {
 	Tree<double> dtree;
 	bool mark=false;
-         mark=inttree.input("indouble.txt");
+         mark=dtree.input("indouble.txt");
 	 REQUIRE(mark);
 }
 SCENARIO("Insert node","[insert]") {
