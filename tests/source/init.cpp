@@ -20,13 +20,13 @@ SCENARIO("Insert node","[insert]") {
 SCENARIO("Output tree","[output]") {
 	Tree inttree;
 	bool mark=false;
-	mark=inttree.output(inttree.get_root);
+	mark=inttree.output(inttree.get_root());
 	REQUIRE(mark);
 }
 SCENARIO("inorder walk","[inorder]") {
 	Tree inttree;
 	bool mark=false;
-	mark=inttree.inorder_walk(inttree.get_root);
+	mark=inttree.inorder_walk(inttree.get_root());
 	REQUIRE(mark);
 }
 
