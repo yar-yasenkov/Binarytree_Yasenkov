@@ -228,7 +228,7 @@ TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x)
         return x;
 }
 
-template <typenam T>
+template <typename T>
 TreeNode<T>* Tree<T>::find_min(TreeNode<T>* x)
 {
         while(x->left!=0)                             
