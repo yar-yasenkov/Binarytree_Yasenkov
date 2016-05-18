@@ -105,6 +105,7 @@ SCENARIO("Delete","[delete]") {
 	 TreeNode<int>* a=inttree.get_root();
 	 TreeNode<int>* b=result.get_root();
 	 inttree.output(a);
+	 cout << endl;
 	 inttree.output(b);
 	 //catch (Already_exist & e)
 	// {
