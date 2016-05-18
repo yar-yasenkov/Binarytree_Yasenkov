@@ -96,14 +96,14 @@ SCENARIO("Exception out","[exceptout]") {
 }
 
 SCENARIO("Delete","[delete]") {
-	 bool marker=true;
+	 bool marker=false;
 	 Tree<int> inttree;
 	 Tree<int> result;
-	// inttree.input("in.txt");
+	 inttree.input("in.txt");
 	try{ result.input("delete.txt");}
-	// inttree.delete_node(inttree.get_root());
-	// if (inttree.get_root()==result.get_root())
-	//    marker=true;
+	 inttree.delete_node(inttree.get_root());
+	 if (inttree.get_root()==result.get_root())
+	    marker=true;
 	catch (Already_exist & e)
 	{
 	   cout<<"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"<<endl;
