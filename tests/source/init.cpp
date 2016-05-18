@@ -100,10 +100,10 @@ SCENARIO("Delete","[delete]") {
 	 Tree<int> inttree;
 	 Tree<int> result;
 	 inttree.input("in.txt");
-	 //result.input("del.txt");
+	 inttree.inorder_walk(inttree.get_root());
 	 inttree.delete_node(inttree.get_root());
-	// if (inttree.get_root()==result.get_root())
-	//    marker=true;
+	 inttree.inorder_walk(inttree.get_root());
+	
 	 REQUIRE(marker);
 }
 
