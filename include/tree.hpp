@@ -74,7 +74,18 @@ public:
 	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	TreeNode<T> *get_root();       
-        friend ostream & operator<< <>(ostream &out, Tree<T> &);
+        friend ostream & operator<< (ostream &out, Tree<T> &)
+        {
+	TreeNode<T> n=tree.get_root();
+	if (tree.get_root()!=0)
+	{
+		inorder_walk(n->left);
+		cout << n->get_data() << endl;
+		inorder_walk(n->right);
+		return out;
+	}
+	else throw Empty_tree();
+        }
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
@@ -208,16 +219,3 @@ TreeNode<T>* Tree<T>::get_root()
 	return root;
 }
 
-template <typename T>
-ostream & operator << <T>(ostream &out, Tree<T> &tree)
-{
-	TreeNode<T> n=tree.get_root();
-	if (tree.get_root()!=0)
-	{
-		inorder_walk(n->left);
-		cout << n->get_data() << endl;
-		inorder_walk(n->right);
-		return out;
-	}
-	else throw Empty_tree();
-}
