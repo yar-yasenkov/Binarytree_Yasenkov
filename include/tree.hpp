@@ -119,6 +119,7 @@ bool Tree<T>::output(TreeNode<T>* n)
 		markerint=1;
 		inorder_walk(n->left);
 		fout << n->get_data() << endl;
+		markerint=1;
 		inorder_walk(n->right);
 	        marker=true;
 	}
