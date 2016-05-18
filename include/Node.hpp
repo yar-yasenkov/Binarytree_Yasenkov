@@ -1,12 +1,7 @@
 #ifndef A_H_INCLUDED 
 #define A_H_INCLUDED
 
-        Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
-        File_Not_Open::File_Not_Open() : Exception("ERROR: file not open!") {}
-        Empty_tree::Empty_tree() : Exception("ERROR: tree is empty!") {}
-        Element_not_found::Element_not_found() : Exception("ERROR: this element does not exist!") {}
-        Tree_Was_Deleted::Tree_Was_Deleted() : Exception("ERROR: tree is deleted!") {}
-
+       
 
 template <typename T> class TreeNode
 {
