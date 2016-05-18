@@ -48,7 +48,7 @@ SCENARIO("inorder walkd","[inotderd]") {
 	REQUIRE(mark);
 }
 
-SCENARIO("Exception","[except]") {
+SCENARIO("Exception input","[exceptinput]") {
 	bool marker=false;
 	Tree<int> inttree;
 	try
@@ -62,3 +62,17 @@ SCENARIO("Exception","[except]") {
 	REQUIRE(marker);
 }
 
+SCENARIO("Exception inorder","[exceptinorder]") {
+	bool marker=false;
+	Tree<int> inttree;
+	inttree.input("in.txt");
+	try
+	{
+		inttree.inorder_walk(inttree.get_root());
+	}
+		catch (Empty_tree & e)
+		{
+			marker=true;
+		}
+		REQUIRE(marker);
+}
