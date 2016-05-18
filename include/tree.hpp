@@ -89,7 +89,7 @@ public:
 	}
 	else throw Empty_tree();
         }
-        friend bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) const
+        friend bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) 
         {
 	         bool marker=true;
 	         T *arrA=new T[marknum];
@@ -102,7 +102,7 @@ public:
 		        inorder_walk(a->right);
 	         }
 	         T *arrB=new T[marknum];
-	         int i=0;
+	         i=0;
 	         if ((a != 0)&&(b!=0))
 	         {
 		        inorder_walk(b->left);
@@ -139,7 +139,7 @@ bool Tree<T>::input(string name)
 		while (!fin.eof())
 		{
 			fin >> a;
-			markernum++;
+			marknum++;
 			insert_node(a);
 		}
 	}
