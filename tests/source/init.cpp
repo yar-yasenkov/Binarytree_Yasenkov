@@ -102,7 +102,7 @@ SCENARIO("Delete","[delete]") {
 	 inttree.input("in.txt");
 	 result.input("del.txt");
 	 inttree.delete_node(inttree.get_root());
-	 if (inttree==result)
+	 if (inttree.get_root()==result.get_root())
 	    marker=true;
 	 REQUIRE(marker);
 }
