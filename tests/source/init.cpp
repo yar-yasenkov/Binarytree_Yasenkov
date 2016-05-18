@@ -51,7 +51,7 @@ SCENARIO("inorder walkd","[inotderd]") {
 	REQUIRE(mark);
 }
 
-SCENARIO("inorder walkd","[inotderd]") {
+SCENARIO("out<<","[out]") {
 	bool mark;
 	Tree<int> inttree;
 	inttree.input("in.txt");
