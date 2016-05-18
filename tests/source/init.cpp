@@ -6,20 +6,23 @@
 SCENARIO("Tree init", "[init]") {
          Tree<int> inttree;
          bool mark=false;
-         mark=inttree.input("in.txt");
+         try {mark=inttree.input("in.txt");}
+	 catch (Empty_tree & e){}
 	 REQUIRE(mark);
 }
 
 SCENARIO("doubleTree init", "[init]") {
 	Tree<double> dtree;
 	bool mark=false;
-         mark=dtree.input("indouble.txt");
-	 REQUIRE(mark);
+        try{ mark=dtree.input("indouble.txt");}
+	catch (Empty_tree & e){}
+        REQUIRE(mark);
 }
 SCENARIO("Insert node","[insert]") {
 	Tree<int> inttree;
 	bool mark=false;
-	mark=inttree.insert_node(125);
+	try{mark=inttree.insert_node(125);}
+	catch (Empty_tree & e){}
 	REQUIRE(mark);
 }
 
@@ -28,6 +31,7 @@ SCENARIO("Output tree","[output]") {
 	inttree.input("in.txt");
 	bool mark=false;
 	mark=inttree.output(inttree.get_root());
+	catch (Empty_tree & e){}
 	REQUIRE(mark);
 }
 
@@ -37,6 +41,7 @@ SCENARIO("inorder walk","[inorder]") {
 	inttree.input("in.txt");
 	bool mark=false;
 	mark=inttree.inorder_walk(inttree.get_root());
+	catch (Empty_tree & e){}
 	REQUIRE(mark);
 }
 
