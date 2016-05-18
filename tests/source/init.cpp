@@ -28,8 +28,8 @@ SCENARIO("Output tree","[output]") {
 	Tree<int> inttree;
 	bool mark=false;
 	inttree.input("in.txt");
-	try{mark=inttree.output(inttree.get_root());}
-	catch (Empty_tree &)
+	mark=inttree.output(inttree.get_root());
+	//catch (Empty_tree &)
 	{ cout << "aaaaaaaaaaaaa" << endl;}
 	REQUIRE(mark);
 }
