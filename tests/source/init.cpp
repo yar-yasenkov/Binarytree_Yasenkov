@@ -82,6 +82,7 @@ SCENARIO("Exception find","[exceptionfind]") {
 	Tree<int> inttree;
 	try
 	{
+		cout << inttree.get_root();
 		inttree.find_node(inttree.get_root(),10);
 	}
 	catch (Empty_tree & e)
