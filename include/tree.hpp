@@ -127,7 +127,7 @@ template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 	const T & val)
 {
-	marker=0;
+	int marker=0;
 	if ((n==0) && (marker=0))
 	{
 		marker++;
