@@ -201,6 +201,7 @@ bool Tree<T>::inorder_walk(TreeNode<T>* n)
 		inorder_walk(n->right);
 		marker=true;
 	}
+	markerint=0;
 	return marker;
 }
 
