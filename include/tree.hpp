@@ -116,6 +116,7 @@ bool Tree<T>::output(TreeNode<T>* n)
 	fout.open("out.txt");
 	if (n != 0)
 	{
+		markerint=1;
 		inorder_walk(n->left);
 		fout << n->get_data() << endl;
 		inorder_walk(n->right);
