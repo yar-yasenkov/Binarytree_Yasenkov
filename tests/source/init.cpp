@@ -95,4 +95,16 @@ SCENARIO("Exception out","[exceptout]") {
 	REQUIRE(marker);
 }
 
+SCENARIO("Delete","[delete]") {
+	 bool marker=false;
+	 Tree<int> inttree;
+	 Tree<int> result;
+	 inttree.input("in.txt");
+	 result.input("del.txt");
+	 inttree.delete_node(inttree.get_root());
+	 if (inttree==result)
+	    marker=true;
+	 REQUIRE(marker);
+}
+
 
