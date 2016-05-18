@@ -74,6 +74,8 @@ public:
 	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	TreeNode<T> *get_root();       
+        TreeNode<T>* find_max(TreeNode<T>*);         /* находит узел с минимальным значением ключа и возвращает указатель на него */                                                         
+        TreeNode<T>* find_min(TreeNode<T>*);
         friend ostream & operator<< (ostream &out, TreeNode<T> & n)
         {
 //	TreeNode<T>* n=tree.get_root();
@@ -218,4 +220,20 @@ TreeNode<T>* Tree<T>::get_root()
 {
 	return root;
 }
+template <typename T>
+TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x)
+{
+        while(x->right!=0)                            
+                x=x->right;
+        return x;
+}
+
+template <typenam T>
+TreeNode<T>* Tree<T>::find_min(TreeNode<T>* x)
+{
+        while(x->left!=0)                             
+                x=x->left;
+        return x;
+}
+
 
