@@ -52,7 +52,7 @@ SCENARIO("inorder walkd","[inotderd]") {
 }
 
 SCENARIO("inorder walkd","[inotderd]") {
-	Tree<int> inttree;
+	Tree<int> inttree.get_root();
 	bool mark=true;
 	inttree.input("in.txt");
 	try
