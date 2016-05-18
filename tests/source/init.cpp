@@ -29,7 +29,7 @@ SCENARIO("Output tree","[output]") {
 	bool mark=false;
 	inttree.input("in.txt");
 	try{mark=inttree.output(inttree.get_root());}
-	catch (Empty tree &)
+	catch (Empty_tree &)
 	{ cout << "aaaaaaaaaaaaa" << endl;}
 	REQUIRE(mark);
 }
