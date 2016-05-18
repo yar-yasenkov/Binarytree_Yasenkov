@@ -74,9 +74,9 @@ public:
 	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	TreeNode<T> *get_root();       
-        friend ostream & operator<< (ostream &out, Tree<T> & tree)
+        friend ostream & operator<< (ostream &out, TreeNode<T> & n)
         {
-	TreeNode<T>* n=tree.get_root();
+//	TreeNode<T>* n=tree.get_root();
 	if (n!=0)
 	{
 		inorder_walk(n->left);
