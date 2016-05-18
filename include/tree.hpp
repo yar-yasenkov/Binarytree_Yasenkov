@@ -5,6 +5,9 @@ template <typename T> class Tree;
 #include "Node.hpp"
 using namespace std;
 
+
+
+int marker=0;
  class Exception
         {
                 char* information;
@@ -127,7 +130,7 @@ template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 	const T & val)
 {
-	int marker=0;
+
 	if ((n==0) && (marker=0))
 	{
 		marker++;
