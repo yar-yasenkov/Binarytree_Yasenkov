@@ -89,7 +89,7 @@ public:
 	}
 	else throw Empty_tree();
         }
-        bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) const
+        friend bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) const
         {
 	         bool marker=true;
 	         T *arrA=new T[marknum];
