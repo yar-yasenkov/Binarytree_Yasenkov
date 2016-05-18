@@ -215,7 +215,7 @@ ostream & operator <<(ostream &out, Tree<T> &tree)
 	if (tree.get_root()!=0)
 	{
 		inorder_walk(n->left);
-		fout << n->get_data() << endl;
+		cout << n->get_data() << endl;
 		inorder_walk(n->right);
 		return out;
 	}
