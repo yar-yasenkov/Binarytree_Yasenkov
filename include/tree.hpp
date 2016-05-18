@@ -63,7 +63,7 @@ private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
 
-        Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
+        Tree::Exception::Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
         File_Not_Open::File_Not_Open() : Exception("ERROR: file not open!") {}
         Empty_tree::Empty_tree() : Exception("ERROR: tree is empty!") {}
         Element_not_found::Element_not_found() : Exception("ERROR: this element does not exist!") {}
