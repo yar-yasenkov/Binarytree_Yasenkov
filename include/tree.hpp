@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-int marker=0;
+int markerint=0;
  class Exception
         {
                 char* information;
@@ -189,6 +189,11 @@ bool Tree<T>::insert_node(const T &x)
 template <typename T>
 bool Tree<T>::inorder_walk(TreeNode<T>* n) 
 {
+	if ((n==0) && (marker==0))
+	{
+		throw Empty_tree();
+		markerint++;
+	}
 	bool marker=false;
 	if (n != 0)
 	{
