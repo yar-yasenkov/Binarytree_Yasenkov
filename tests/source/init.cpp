@@ -51,6 +51,22 @@ SCENARIO("inorder walkd","[inotderd]") {
 	REQUIRE(mark);
 }
 
+SCENARIO("inorder walkd","[inotderd]") {
+	Tree<int> inttree;
+	bool mark=true;
+	inttree.input("in.txt");
+	try
+	{
+		cout<<inttree;
+	}
+	catch (Empty_tree & e)
+	{
+		mark=false;
+	}
+	REQUIRE(mark);
+}
+
+
 SCENARIO("Exception input","[exceptinput]") {
 	bool marker=false;
 	Tree<int> inttree;
