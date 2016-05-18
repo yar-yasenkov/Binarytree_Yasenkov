@@ -5,12 +5,7 @@ template <typename T> class Tree;
 #include "Node.hpp"
 using namespace std;
 
-template <typename T>
-class Tree
-{
-public:
-                     /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
-        class Exception
+ class Exception
         {
                 char* information;
                 public:
@@ -50,6 +45,23 @@ public:
                public:
 	       Tree_Was_Deleted();
         };
+
+
+        Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
+        File_Not_Open::File_Not_Open() : Exception("ERROR: file not open!") {}
+        Empty_tree::Empty_tree() : Exception("ERROR: tree is empty!") {}
+        Element_not_found::Element_not_found() : Exception("ERROR: this element does not exist!") {}
+        Tree_Was_Deleted::Tree_Was_Deleted() : Exception("ERROR: tree is deleted!") {}
+
+
+
+template <typename T>
+class Tree
+{
+public:
+                     /* âîçâðàùàåò óêàçàòåëü íà êîðåíü äåðåâà */
+   
+       
         
      
         Tree();                                                    /* êîíñòðóêòîð */
@@ -62,12 +74,8 @@ public:
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
-        template <typename T>
-        Tree<T>::Exception::Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
-        File_Not_Open::File_Not_Open() : Exception("ERROR: file not open!") {}
-        Empty_tree::Empty_tree() : Exception("ERROR: tree is empty!") {}
-        Element_not_found::Element_not_found() : Exception("ERROR: this element does not exist!") {}
-        Tree_Was_Deleted::Tree_Was_Deleted() : Exception("ERROR: tree is deleted!") {}
+        
+        
 template <typename T>
 Tree<T>::Tree()
 {
