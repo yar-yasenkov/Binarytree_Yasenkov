@@ -112,14 +112,16 @@ template <typename T>
 bool Tree<T>::output(TreeNode<T>* n)
 {
 	bool marker=false;
+	if (n==0)
+        {
+        	throw Empty_tree();
+        }
 	ofstream fout;
 	fout.open("out.txt");
 	if (n != 0)
 	{
-		markerint=1;
 		inorder_walk(n->left);
 		fout << n->get_data() << endl;
-		markerint=1;
 		inorder_walk(n->right);
 	        marker=true;
 	}
@@ -186,15 +188,6 @@ bool Tree<T>::insert_node(const T &x)
 template <typename T>
 bool Tree<T>::inorder_walk(TreeNode<T>* n) 
 {
-	if (n!=0)
-	{
-	        markerint++;	
-	}
-	if ((n==0) && (markerint==0))
-	{
-		throw Empty_tree();
-		markerint++;
-	}
 	bool marker=false;
 	if (n != 0)
 	{
