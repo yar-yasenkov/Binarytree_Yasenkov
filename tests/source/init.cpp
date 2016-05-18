@@ -102,7 +102,7 @@ SCENARIO("Delete","[delete]") {
 	 inttree.input("in.txt");
 	 inttree.inorder_walk(inttree.get_root());
 	 inttree.delete_node(inttree.get_root());
-	 inttreee.inorder_walk(inttree.get_root());
+	 inttree.inorder_walk(inttree.get_root());
 	 REQUIRE(marker);
 }
 
