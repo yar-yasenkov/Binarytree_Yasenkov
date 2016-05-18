@@ -74,6 +74,7 @@ public:
 	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	TreeNode<T> *get_root();       
+        friend ostream & operator<< <>(ostream &out, Tree<T> &);
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
@@ -205,4 +206,18 @@ template <typename T>
 TreeNode<T>* Tree<T>::get_root()
 {
 	return root;
+}
+
+template <typename T>
+ostream & operator<< <>(ostream &out, Tree<T> &tree)
+{
+	TreeNode<T> n=tree.get_root();
+	if (tree.get_root()!=0)
+	{
+		inorder_walk(n->left);
+		fout << n->get_data() << endl;
+		inorder_walk(n->right);
+		return out;
+	}
+	else throw Empty_tree();
 }
