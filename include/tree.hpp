@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-int markerint=0;
+int marknum=0;
  class Exception
         {
                 char* information;
@@ -89,6 +89,34 @@ public:
 	}
 	else throw Empty_tree();
         }
+        bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) const
+        {
+	         bool marker=true;
+	         T *arrA=new T[marknum];
+	         int i=0;
+	         if ((a != 0)&&(b!=0))
+	         {
+		        inorder_walk(a->left);
+	          	arrA[i]=a->get_data();
+	          	i++;
+		        inorder_walk(a->right);
+	         }
+	         T *arrB=new T[marknum];
+	         int i=0;
+	         if ((a != 0)&&(b!=0))
+	         {
+		        inorder_walk(b->left);
+	          	arrB[i]=b->get_data();
+	          	i++;
+		        inorder_walk(b->right);
+	          }
+	          for(int i=0;i<marknum;i++)
+	          {
+	          	if (arrA[i]!=arrB[i])
+	          	marker=false;
+	          }
+	          return marker;
+        }
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
@@ -111,6 +139,7 @@ bool Tree<T>::input(string name)
 		while (!fin.eof())
 		{
 			fin >> a;
+			markernum++;
 			insert_node(a);
 		}
 	}
@@ -212,7 +241,6 @@ bool Tree<T>::inorder_walk(TreeNode<T>* n)
 		inorder_walk(n->right);
 		marker=true;
 	}
-	markerint=0;
 	return marker;
 }
 
