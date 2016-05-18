@@ -76,7 +76,7 @@ public:
 	TreeNode<T> *get_root();       
         friend ostream & operator<< (ostream &out, Tree<T> & tree)
         {
-	TreeNode<T> n=tree.get_root();
+	TreeNode<T>* n=tree.get_root();
 	if (tree.get_root()!=0)
 	{
 		inorder_walk(n->left);
