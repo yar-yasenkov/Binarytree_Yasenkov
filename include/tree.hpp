@@ -131,7 +131,7 @@ TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 	const T & val)
 {
 
-	if ((n==0) && (marker=0))
+	if ((n==0) && (marker==0))
 	{
 		marker++;
 		throw Empty_tree();
