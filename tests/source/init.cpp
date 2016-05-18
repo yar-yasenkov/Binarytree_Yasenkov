@@ -52,10 +52,11 @@ SCENARIO("inorder walkd","[inotderd]") {
 }
 
 SCENARIO("inorder walkd","[inotderd]") {
+	bool mark;
 	Tree<int> inttree;
 	inttree.input("in.txt");
-	TreeNode<int>* n=inttree.get_root()
-	bool mark=true;
+	TreeNode<int>* n=inttree.get_root();
+	mark=true;
 	try
 	{
 		cout<<n;
