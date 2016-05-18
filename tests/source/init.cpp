@@ -55,7 +55,7 @@ SCENARIO("Exception","[except]") {
 	{
 		inttree.input("aavavasvas.txt");
 	}
-	catch (Tree<int>::Except & e)
+	catch (Tree<int>::File_Not_Open & e)
 	{
 	    marker=true;
 	}
