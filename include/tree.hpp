@@ -184,6 +184,10 @@ bool Tree<T>::insert_node(const T &x)
 template <typename T>
 bool Tree<T>::inorder_walk(TreeNode<T>* n) 
 {
+	if (n!=0)
+	{
+	        markerint++;	
+	}
 	if ((n==0) && (markerint==0))
 	{
 		throw Empty_tree();
