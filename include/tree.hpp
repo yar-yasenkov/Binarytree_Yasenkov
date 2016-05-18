@@ -51,11 +51,7 @@ public:
 	       Tree_Was_Deleted();
         };
         
-        Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
-        File_Not_Open::File_Not_Open() : Exception("ERROR: file not open!") {}
-        Empty_tree::Empty_tree() : Exception("ERROR: tree is empty!") {}
-        Element_not_found::Element_not_found() : Exception("ERROR: this element does not exist!") {}
-        Tree_Was_Deleted::Tree_Was_Deleted() : Exception("ERROR: tree is deleted!") {}
+     
         Tree();                                                    /* êîíñòðóêòîð */
 	bool insert_node(const T &) /*throw(Already_exist &)*/;                         /* âñòàâëÿåò óçåë */
 	bool input(string) /*throw(File_Not_Open &)*/;
@@ -67,6 +63,11 @@ private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
 
+        Already_exist::Already_exist() : Exception("ERROR: element already exists!") {}
+        File_Not_Open::File_Not_Open() : Exception("ERROR: file not open!") {}
+        Empty_tree::Empty_tree() : Exception("ERROR: tree is empty!") {}
+        Element_not_found::Element_not_found() : Exception("ERROR: this element does not exist!") {}
+        Tree_Was_Deleted::Tree_Was_Deleted() : Exception("ERROR: tree is deleted!") {}
 template <typename T>
 Tree<T>::Tree()
 {
