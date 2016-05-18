@@ -76,6 +76,7 @@ public:
 	TreeNode<T> *get_root();       
         TreeNode<T>* find_max(TreeNode<T>*);         /* находит узел с минимальным значением ключа и возвращает указатель на него */                                                         
         TreeNode<T>* find_min(TreeNode<T>*);
+        TreeNode<T>* delete_node(TreeNode<T> *);  
         friend ostream & operator<< (ostream &out, TreeNode<T> & n)
         {
 //	TreeNode<T>* n=tree.get_root();
@@ -236,4 +237,43 @@ TreeNode<T>* Tree<T>::find_min(TreeNode<T>* x)
         return x;
 }
 
+template<typename T>
+TreeNode<T>* Tree<T>::delete_node(TreeNode<T> *z)
+{
+        TreeNode<T>* y;
+        TreeNode<T>* x;
+        if(z->left == 0 || z->right == 0)               /* в этой и следующих двух строках ищем вершину y, которую мы потом вырежем из дерева. Это либо z, либо следующий за z */
+                y=z;
+        else
+                {
+                	if(x == 0)
+                          y=0;
+                        if(x->right!=0)                                                /* если у нее есть правые дети, то следующий элемент - минимальный в правом поддереве */
+                          return find_min(x->right);
+                        y=x->parent;
+                        while(y!=0 && x == y->right)                                   /* иначе - идем вверх и ищем первый элемент, являющийся левымпотомком своего родителя */
+                        {
+                            x=y;
+                            y=y->parent;
+                        }
+                }
+        if(y->left!=0)                                  /* x - указатель на существующего ребенка y или 0 если таковых нет */ 
+                x=y->left;
+        else
+                x=y->right;
+        if(x!=0)                                        /* эта и следующие 9 строк - вырезание y */ 
+                x->parent=y->parent;
+        if(y->parent == 0)
+                root=x;
+        else
+        {
+                if (y== (y->parent)->left)
+                        (y->parent)->left=x;
+                else
+                        (y->parent)->right=x;
+        }
+        if(y!=z)                                        /* если мы вырезали вершин, отличную от z, то ее данные перемещаем в z */
+                z->data=y->get_data();
+        return y;
+}
 
