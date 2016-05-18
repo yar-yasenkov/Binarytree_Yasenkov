@@ -70,7 +70,7 @@ SCENARIO("Exception out","[exceptout]") {
 	Tree<int> inttree;
 	try
 	{
-	    inttree.output(inttre.get_root());
+	    inttree.output(inttree.get_root());
 	}
 	catch (Empty_tree & e)
 	{
