@@ -102,8 +102,10 @@ SCENARIO("Delete","[delete]") {
 	 inttree.input("in.txt");
 	 inttree.delete_node(inttree.get_root());
 	 result.input("delete.txt");
-	 cout<<inttree.get_root()<< endl;
-	 cout<<result.get_root()<<endl;
+	 TreeNode<int>* a=inttree.get_root();
+	 TreeNode<int>* b=result.get_root();
+	 inttree.output(a);
+	 inttree.output(b);
 	 //catch (Already_exist & e)
 	// {
 	//    cout<<"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"<<endl;
