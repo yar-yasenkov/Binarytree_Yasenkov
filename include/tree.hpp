@@ -127,6 +127,12 @@ template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 	const T & val)
 {
+	marker=0;
+	if ((n==0) && (marker=0))
+	{
+		marker++;
+		throw Empty_tree();
+	}
 	if (n == 0 || val == n->get_data())
 		return n;
 	if (val > n->get_data())
@@ -181,10 +187,6 @@ template <typename T>
 bool Tree<T>::inorder_walk(TreeNode<T>* n) 
 {
 	bool marker=false;
-	if (n==0)
-	{
-		throw Empty_tree();
-	}
 	if (n != 0)
 	{
 		inorder_walk(n->left);
