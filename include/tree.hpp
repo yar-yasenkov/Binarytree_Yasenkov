@@ -83,7 +83,7 @@ public:
 	if (n!=0)
 	{
 		inorder_walk(n->left);
-		cout << n->get_data() << endl;
+		out << n->get_data() << endl;
 		inorder_walk(n->right);
 		return out;
 	}
