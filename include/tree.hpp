@@ -209,7 +209,7 @@ TreeNode<T>* Tree<T>::get_root()
 }
 
 template <typename T>
-ostream & operator<< <>(ostream &out, Tree<T> &tree)
+ostream & operator <<(ostream &out, Tree<T> &tree)
 {
 	TreeNode<T> n=tree.get_root();
 	if (tree.get_root()!=0)
