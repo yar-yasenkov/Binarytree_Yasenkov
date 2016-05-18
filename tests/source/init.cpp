@@ -62,7 +62,7 @@ SCENARIO("Exception input","[exceptinput]") {
 	REQUIRE(marker);
 }
 
-SCENARIO("Exception inorder","[exceptinorder]") {
+/*SCENARIO("Exception inorder","[exceptinorder]") {
 	bool marker=false;
 	Tree<int> inttree;
 	inttree.input("in.txt");
@@ -75,4 +75,18 @@ SCENARIO("Exception inorder","[exceptinorder]") {
 			marker=true;
 		}
 		REQUIRE(marker);
+}*/
+
+SCENARIO("Exception find","[exceptionfind]") {
+	bool marker=false;
+	Tree<int> inttree;
+	try
+	{
+		inttree.find_node(inttree.get_root(),10);
+	}
+	catch (Empty_tree & e)
+	{
+		marker=true;
+	}
+	REQUIRE(marker);
 }
