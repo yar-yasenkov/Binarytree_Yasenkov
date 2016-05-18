@@ -6,36 +6,29 @@
 SCENARIO("Tree init", "[init]") {
          Tree<int> inttree;
          bool mark=false;
-         try {mark=inttree.input("in.txt");}
-	 catch (Empty_tree & e){}
+         mark=inttree.input("in.txt");
+	 
 	 REQUIRE(mark);
 }
 
 SCENARIO("doubleTree init", "[init]") {
 	Tree<double> dtree;
 	bool mark=false;
-        try{ mark=dtree.input("indouble.txt");}
-	catch (Empty_tree & e){}
+        mark=dtree.input("indouble.txt");
         REQUIRE(mark);
 }
 SCENARIO("Insert node","[insert]") {
 	Tree<int> inttree;
 	bool mark=false;
-	try{mark=inttree.insert_node(125);}
-	catch (Empty_tree & e){}
+	mark=inttree.insert_node(125);
 	REQUIRE(mark);
 }
 
 SCENARIO("Output tree","[output]") {
 	Tree<int> inttree;
 	bool mark=false;
-	try 
-	{
 	inttree.input("in.txt");
-	
 	mark=inttree.output(inttree.get_root());
-	}
-	catch (Empty_tree & e){}
 	REQUIRE(mark);
 }
 
@@ -43,26 +36,16 @@ SCENARIO("Output tree","[output]") {
 SCENARIO("inorder walk","[inorder]") {
 	Tree<int> inttree;
 	bool mark=false;
-	try
-	{
 	inttree.input("in.txt");
-	
 	mark=inttree.inorder_walk(inttree.get_root());
-	}
-	catch (Empty_tree & e){}
 	REQUIRE(mark);
 }
 
 SCENARIO("inorder walkd","[inotderd]") {
 	Tree<double> dtree;
 	bool mark=false;
-	try
-	{
 	dtree.input("indouble.txt");
-
 	mark=dtree.inorder_walk(dtree.get_root());
-	}
-        catch (Empty_tree & e){}
 	REQUIRE(mark);
 }
 
@@ -80,7 +63,7 @@ SCENARIO("Exception input","[exceptinput]") {
 	REQUIRE(marker);
 }
 
-/*SCENARIO("Exception inorder","[exceptinorder]") {
+SCENARIO("Exception inorder","[exceptinord]") {
 	bool marker=false;
 	Tree<int> inttree;
 	inttree.input("in.txt");
@@ -88,24 +71,11 @@ SCENARIO("Exception input","[exceptinput]") {
 	{
 		inttree.inorder_walk(inttree.get_root());
 	}
-		catch (Empty_tree & e)
-		{
-			marker=true;
-		}
-		REQUIRE(marker);
-}*/
-
-SCENARIO("Exception find","[exceptionfind]") {
-	bool marker=false;
-	Tree<int> inttree;
-	try
-	{
-		cout << inttree.get_root();
-		inttree.find_node(inttree.get_root(),10);
-	}
 	catch (Empty_tree & e)
 	{
-		marker=true;
+	    marker=true;
 	}
 	REQUIRE(marker);
 }
+
+
