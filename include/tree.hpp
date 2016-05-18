@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 template <typename T> class Tree;
@@ -83,7 +82,7 @@ public:
 	if (n!=0)
 	{
 		inorder_walk(n->left);
-		out << n->get_data() << endl;
+		cout << n->get_data() << endl;
 		inorder_walk(n->right);
 		return out;
 	}
@@ -305,4 +304,3 @@ TreeNode<T>* Tree<T>::delete_node(TreeNode<T> *z)
                 z->data=y->get_data();
         return y;
 }
-
