@@ -28,10 +28,11 @@ SCENARIO("Insert node","[insert]") {
 
 SCENARIO("Output tree","[output]") {
 	Tree<int> inttree;
+	bool mark=false;
 	try 
 	{
 	inttree.input("in.txt");
-	bool mark=false;
+	
 	mark=inttree.output(inttree.get_root());
 	}
 	catch (Empty_tree & e){}
@@ -41,10 +42,11 @@ SCENARIO("Output tree","[output]") {
 
 SCENARIO("inorder walk","[inorder]") {
 	Tree<int> inttree;
+	bool mark=false;
 	try
 	{
 	inttree.input("in.txt");
-	bool mark=false;
+	
 	mark=inttree.inorder_walk(inttree.get_root());
 	}
 	catch (Empty_tree & e){}
@@ -53,10 +55,11 @@ SCENARIO("inorder walk","[inorder]") {
 
 SCENARIO("inorder walkd","[inotderd]") {
 	Tree<double> dtree;
+	bool mark=false;
 	try
 	{
 	dtree.input("indouble.txt");
-	bool mark=false;
+
 	mark=dtree.inorder_walk(dtree.get_root());
 	}
         catch (Empty_tree & e){}
