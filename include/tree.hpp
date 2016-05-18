@@ -181,10 +181,10 @@ template <typename T>
 bool Tree<T>::inorder_walk(TreeNode<T>* n) /*throw (Empty_tree &)*/
 {
 	bool marker=false;
-	if (n==0)
+/*	if (n==0)
 	{
 		throw Empty_tree();
-	}
+	}*/
 	if (n != 0)
 	{
 		inorder_walk(n->left);
