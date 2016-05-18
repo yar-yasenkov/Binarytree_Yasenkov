@@ -104,6 +104,10 @@ SCENARIO("Delete","[delete]") {
 	// inttree.delete_node(inttree.get_root());
 	// if (inttree.get_root()==result.get_root())
 	//    marker=true;
+	catch (File_Not_Open & e)
+	{
+	   cout<<"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"<<endl;
+	}
 	 REQUIRE(marker);
 }
 
