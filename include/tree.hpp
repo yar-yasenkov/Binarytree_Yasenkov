@@ -65,12 +65,12 @@ public:
         
      
         Tree();                                                    /* êîíñòðóêòîð */
-	bool insert_node(const T &) /*throw(Already_exist &)*/;                         /* âñòàâëÿåò óçåë */
-	bool input(string) /*throw(File_Not_Open &)*/;
+	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
+	bool input(string);
 	bool output(TreeNode<T>*);
-	bool inorder_walk(TreeNode<T>*) /*throw(Empty_tree &)*/;                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
-	TreeNode<T>* find_node(TreeNode<T>*, const T &) /*throw(Element_not_found &)*/;
-	TreeNode<T> *get_root() /*throw(Empty_tree &)*/;       
+	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
+	TreeNode<T>* find_node(TreeNode<T>*, const T &);
+	TreeNode<T> *get_root();       
 private:
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
@@ -83,7 +83,7 @@ Tree<T>::Tree()
 }
 
 template <typename T>
-bool Tree<T>::input(string name) /*throw(File_Not_Open &)*/
+bool Tree<T>::input(string name) 
 {
 	T a;
 	fstream fin;
@@ -125,7 +125,7 @@ bool Tree<T>::output(TreeNode<T>* n)
 
 template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
-	const T & val) /*throw(Element_not_found &)*/
+	const T & val)
 {
 	if (n == 0 || val == n->get_data())
 		return n;
@@ -141,7 +141,7 @@ TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 
 
 template <typename T>
-bool Tree<T>::insert_node(const T &x) /*throw(Already_exist &)*/
+bool Tree<T>::insert_node(const T &x) 
 {
 	TreeNode<T>* elem=nullptr;
 	elem=find_node(root,x);
@@ -178,13 +178,13 @@ bool Tree<T>::insert_node(const T &x) /*throw(Already_exist &)*/
 
 
 template <typename T>
-bool Tree<T>::inorder_walk(TreeNode<T>* n) /*throw (Empty_tree &)*/
+bool Tree<T>::inorder_walk(TreeNode<T>* n) 
 {
 	bool marker=false;
-/*	if (n==0)
+	if (n==0)
 	{
 		throw Empty_tree();
-	}*/
+	}
 	if (n != 0)
 	{
 		inorder_walk(n->left);
