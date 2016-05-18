@@ -198,10 +198,10 @@ bool Tree<T>::insert_node(const T &x)
 {
 	TreeNode<T>* elem=nullptr;
 	elem=find_node(root,x);
-/*	if (elem!=nullptr) 
+	if (elem!=nullptr) 
 	{
 		throw Already_exist();
-	}*/
+	}
 	TreeNode<T>* n = new TreeNode<T>(x);  
 	TreeNode<T>* ptr;
 	TreeNode<T>* ptr1 = 0;
