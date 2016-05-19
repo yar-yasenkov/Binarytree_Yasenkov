@@ -18,13 +18,13 @@ protected:
 };
 
 template <typename T>
- TreeNode<T>::TreeNode() :data(0), left(0), right(0)
+ TreeNode<T>::TreeNode() :data(0), left(nullptr), right(nullptr)
  {}
 template <typename T>
 TreeNode<T>::TreeNode(const T &a)
 {
 	data = a;
-	left = right = 0;
+	left = right = nullptr;
 }
 
 template <typename T>
