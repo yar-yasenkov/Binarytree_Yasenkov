@@ -97,7 +97,10 @@ public:
 	T x;
 	while (!fin.eof())
 	{
-		if (fin>>x) tree.insert_node(x);  ;
+		if (fin>>x)
+		{
+			tree.insert_node(x);
+		}
 		else break;
 	}
 	return fin;
