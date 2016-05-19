@@ -67,7 +67,7 @@ public:
         Tree();                                                    /* êîíñòðóêòîð */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
-	bool input(string);
+	bool input(const string &);
 	bool output(TreeNode<T>*) const;
 	bool inorder_walk(TreeNode<T>*) const;                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 	TreeNode<T> *get_root() const;       
@@ -155,7 +155,7 @@ Tree<T>::Tree()
 }
 
 template <typename T>
-bool Tree<T>::input(string name) 
+bool Tree<T>::input(const string & name) 
 {
 	T a;
 	fstream fin;
