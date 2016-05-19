@@ -65,7 +65,8 @@ public:
         
      
         Tree();                                                    /* êîíñòðóêòîð */
-	TreeNode<T>* find_node(TreeNode<T>*, const T &);
+	TreeNode<T>* find_node(TreeNode<T>*, const T &) const;
+	bool search(TreeNode<T>*, const T &) const;
 	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
 	bool input(const string &);
 	bool output(TreeNode<T>*) const;
@@ -201,10 +202,25 @@ bool Tree<T>::output(TreeNode<T>* n) const
 	return marker;
 }
 
+bool search(TreeNode<T>* n,const T & value) const
+{
+	if ( value == n->get_data())
+	{
+		return true;
+	}
+	if (value > n->get_data())
+		return search(n->right, value);
+	else
+		return search(n->left, value);
+	return false;	
+	
+}
+
+
 
 template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
-	const T & val)
+	const T & val) const
 {
 	if (n == nullptr || val == n->get_data())
 		return n;
