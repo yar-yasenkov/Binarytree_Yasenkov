@@ -102,10 +102,7 @@ public:
 	}
 	return fin;
         }
-        friend void increase_number (Tree<T> & tree)
-        {
-        	number++;
-        }
+       
         /*friend bool operator ==(Tree<T> const & a, Tree<T> const & b) 
         {
 	         TreeNode<T>* roota=a.get_root();
@@ -138,10 +135,15 @@ public:
 	          return marker;
         }*/
 private:
+	
 	TreeNode<T>* find_max(TreeNode<T>*) const;                                                                  
         TreeNode<T>* find_min(TreeNode<T>*) const;
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 	int number;
+	 friend void increase_number (Tree<T> & tree)
+        {
+        	number++;
+        }
 };
         
         
