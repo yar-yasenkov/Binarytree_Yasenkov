@@ -70,24 +70,39 @@ public:
 	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
 	bool input(string);
-	bool output(TreeNode<T>*);
+	bool output(TreeNode<T>*) const;
 	bool inorder_walk(TreeNode<T>*) const;                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
 
 	TreeNode<T> *get_root();       
         
         TreeNode<T>* delete_node(TreeNode<T> *);  
-        friend ostream & operator<< (ostream &out, TreeNode<T> & n)
+        friend ostream & operator<< (ostream &out,const Tree<T> & tree)
         {
-//	TreeNode<T>* n=tree.get_root();
+	TreeNode<T>* roottree=tree.get_root();
 	if (n!=0)
 	{
-		inorder_walk(n->left);
-		cout << n->get_data() << endl;
-		inorder_walk(n->right);
+		inorder_walk(roottree->left);
+		cout << roottree->get_data() << endl;
+		inorder_walk(roottree->right);
 		return out;
 	}
 	else throw Empty_tree();
         }
+        friend ifstream & operator>> (ifstream &fin, Tree<T> & tree)
+        {
+	if (!fin.is_open())
+	{
+	     throw File_Not_Open();
+	}
+	T x;
+	while (!fin.eof())
+	{
+		if (fin>>x) tree.insert_node(x);  ;
+		else break;
+	}
+	return fin;
+        }
+        
         friend bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) 
         {
 	         bool marker=true;
@@ -154,7 +169,7 @@ bool Tree<T>::input(string name)
 }
 
 template <typename T>
-bool Tree<T>::output(TreeNode<T>* n)
+bool Tree<T>::output(TreeNode<T>* n) const
 {
 	bool marker=false;
 	if (n==0)
