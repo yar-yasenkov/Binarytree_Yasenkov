@@ -72,9 +72,8 @@ public:
 	bool input(string);
 	bool output(TreeNode<T>*) const;
 	bool inorder_walk(TreeNode<T>*) const;                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
-
-	TreeNode<T> *get_root();       
-        
+	TreeNode<T> *get_root() const;       
+        int get_numbernodes() const;
         TreeNode<T>* delete_node(TreeNode<T> *);  
         friend ostream & operator<< (ostream &out,const Tree<T> & tree)
         {
@@ -106,8 +105,11 @@ public:
 	return fin;
         }
         
-        friend bool operator ==(TreeNode<T> const & a, TreeNode<T> const & b) 
+        /*friend bool operator ==(Tree<T> const & a, Tree<T> const & b) 
         {
+	         TreeNode<T>* roota=a.get_root();
+	         TreeNode<T>* rootb=b.get_root();
+	         int marknum=
 	         bool marker=true;
 	         T *arrA=new T[marknum];
 	         int i=0;
@@ -133,12 +135,12 @@ public:
 	          	marker=false;
 	          }
 	          return marker;
-        }
+        }*/
 private:
 	TreeNode<T>* find_max(TreeNode<T>*) const;                                                                  
         TreeNode<T>* find_min(TreeNode<T>*) const;
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
-	int marknum;
+	int number;
 };
         
         
@@ -146,7 +148,7 @@ template <typename T>
 Tree<T>::Tree()
 {
 	root = 0;                      /* â íà÷àëå äåðåâî ïóñòî */
-	marknum=0;
+	number=0;
 }
 
 template <typename T>
@@ -262,10 +264,18 @@ bool Tree<T>::inorder_walk(TreeNode<T>* n) const
 }
 
 template <typename T>
-TreeNode<T>* Tree<T>::get_root()
+TreeNode<T>* Tree<T>::get_root() const
 {
 	return root;
 }
+
+template <typename T>
+int Tree<T>::get_numbernodes() const
+{
+	return number;
+}
+
+
 template <typename T>
 TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x) const
 {
