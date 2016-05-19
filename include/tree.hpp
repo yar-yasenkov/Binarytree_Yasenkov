@@ -197,16 +197,12 @@ template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 	const T & val)
 {
-
-	
 	if (n == 0 || val == n->get_data())
 		return n;
 	if (val > n->get_data())
 		return find_node(n->right, val);
 	else
 		return find_node(n->left, val);
-       
-	
 }
 
 
