@@ -142,7 +142,7 @@ private:
 	int number;
 	 friend void increase_number (Tree<T> & tree)
         {
-        	number++;
+        	tree.number++;
         }
 };
         
