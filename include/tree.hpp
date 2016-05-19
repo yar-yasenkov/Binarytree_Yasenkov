@@ -164,9 +164,11 @@ bool Tree<T>::input(const string & name)
 	{
 		while (!fin.eof())
 		{
-			fin >> a;
-			increase_number(*this);
-			insert_node(a);
+	                if (fin >> a)
+	                {
+			    increase_number(*this);
+			    insert_node(a);
+	                }
 		}
 	}
 	else 
