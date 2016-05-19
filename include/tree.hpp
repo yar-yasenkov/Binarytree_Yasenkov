@@ -76,7 +76,7 @@ public:
         friend ostream & operator<< (ostream &out,const Tree<T> & tree)
         {
 	TreeNode<T>* roottree=tree.get_root();
-	if (roottree!=0)
+	if (roottree!=nullptr)
 	{
 		inorder_walk(roottree->left);
 		cout << roottree->get_data() << endl;
@@ -150,7 +150,7 @@ private:
 template <typename T>
 Tree<T>::Tree()
 {
-	root = 0;                      /* â íà÷àëå äåðåâî ïóñòî */
+	root = nullptr;                      /* â íà÷àëå äåðåâî ïóñòî */
 	number=0;
 }
 
@@ -184,13 +184,13 @@ template <typename T>
 bool Tree<T>::output(TreeNode<T>* n) const
 {
 	bool marker=false;
-	if (n==0)
+	if (n==nullptr)
         {
         	throw Empty_tree();
         }
 	ofstream fout;
 	fout.open("out.txt");
-	if (n != 0)
+	if (n != nullptr)
 	{
 		inorder_walk(n->left);
 		fout << n->get_data() << endl;
@@ -206,7 +206,7 @@ template <typename T>
 TreeNode<T>* Tree<T>::find_node(TreeNode<T>* n,
 	const T & val)
 {
-	if (n == 0 || val == n->get_data())
+	if (n == nullptr || val == n->get_data())
 		return n;
 	if (val > n->get_data())
 		return find_node(n->right, val);
@@ -228,10 +228,10 @@ bool Tree<T>::insert_node(const T &x)
 	}
 	TreeNode<T>* n = new TreeNode<T>(x);  
 	TreeNode<T>* ptr;
-	TreeNode<T>* ptr1 = 0;
-	n->parent = n->left = n->right = 0;          
+	TreeNode<T>* ptr1 = nullptr;
+	n->parent = n->left = n->right = nullptr;          
 	ptr = root;
-	while (ptr != 0)                     
+	while (ptr != nullptr)                     
 	{
 		ptr1 = ptr;                 
 		if (x < ptr->get_data())  
@@ -240,7 +240,7 @@ bool Tree<T>::insert_node(const T &x)
 			ptr = ptr->right;  
 	}
 	n->parent = ptr1;
-	if (ptr1 == 0)                      
+	if (ptr1 == nullptr)                      
 		root = n;
 	else
 	{
@@ -258,7 +258,7 @@ template <typename T>
 bool Tree<T>::inorder_walk(TreeNode<T>* n) const
 {
 	bool marker=false;
-	if (n != 0)
+	if (n != nullptr)
 	{
 		inorder_walk(n->left);
 		cout << n->get_data() << endl;
@@ -284,7 +284,7 @@ int Tree<T>::get_numbernodes() const
 template <typename T>
 TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x) const
 {
-        while(x->right!=0)                            
+        while(x->right!=nullptr)                            
                 x=x->right;
         return x;
 }
@@ -292,7 +292,7 @@ TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x) const
 template <typename T>
 TreeNode<T>* Tree<T>::find_min(TreeNode<T>* x) const
 {
-        while(x->left!=0)                             
+        while(x->left!=nullptr)                             
                 x=x->left;
         return x;
 }
@@ -302,29 +302,29 @@ TreeNode<T>* Tree<T>::delete_node(TreeNode<T> *z)
 {
         TreeNode<T>* y;
         TreeNode<T>* x;
-        if(z->left == 0 || z->right == 0)               /* в этой и следующих двух строках ищем вершину y, которую мы потом вырежем из дерева. Это либо z, либо следующий за z */
+        if(z->left == nullptr || z->right == nullptr)               /* в этой и следующих двух строках ищем вершину y, которую мы потом вырежем из дерева. Это либо z, либо следующий за z */
                 y=z;
         else
                 {
                 	TreeNode<T>* a=z;
-                	if(a == 0)
+                	if(a == nullptr)
                           y=0;
-                        if(a->right!=0)                                                /* если у нее есть правые дети, то следующий элемент - минимальный в правом поддереве */
+                        if(a->right!=nullptr)                                                /* если у нее есть правые дети, то следующий элемент - минимальный в правом поддереве */
                           return find_min(a->right);
                         y=a->parent;
-                        while(y!=0 && a == y->right)                                   /* иначе - идем вверх и ищем первый элемент, являющийся левымпотомком своего родителя */
+                        while(y!=nullptr && a == y->right)                                   /* иначе - идем вверх и ищем первый элемент, являющийся левымпотомком своего родителя */
                         {
                             a=y;
                             y=y->parent;
                         }
                 }
-        if(y->left!=0)                                  /* x - указатель на существующего ребенка y или 0 если таковых нет */ 
+        if(y->left!=nullptr)                                  /* x - указатель на существующего ребенка y или 0 если таковых нет */ 
                 x=y->left;
         else
                 x=y->right;
-        if(x!=0)                                        /* эта и следующие 9 строк - вырезание y */ 
+        if(x!=nullptr)                                        /* эта и следующие 9 строк - вырезание y */ 
                 x->parent=y->parent;
-        if(y->parent == 0)
+        if(y->parent == nullptr)
                 root=x;
         else
         {
