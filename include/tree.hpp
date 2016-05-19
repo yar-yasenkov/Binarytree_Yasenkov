@@ -138,6 +138,7 @@ private:
 	TreeNode<T>* find_max(TreeNode<T>*) const;                                                                  
         TreeNode<T>* find_min(TreeNode<T>*) const;
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
+	int marknum;
 };
         
         
@@ -145,6 +146,7 @@ template <typename T>
 Tree<T>::Tree()
 {
 	root = 0;                      /* â íà÷àëå äåðåâî ïóñòî */
+	marknum=0;
 }
 
 template <typename T>
