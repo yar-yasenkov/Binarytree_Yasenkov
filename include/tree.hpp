@@ -5,8 +5,6 @@ template <typename T> class Tree;
 using namespace std;
 
 
-
-int marknum=0;
  class Exception
         {
                 char* information;
