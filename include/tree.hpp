@@ -100,37 +100,7 @@ public:
 	return fin;
         }
        
-        /*friend bool operator ==(Tree<T> const & a, Tree<T> const & b) 
-        {
-	         TreeNode<T>* roota=a.get_root();
-	         TreeNode<T>* rootb=b.get_root();
-	         int marknum=
-	         bool marker=true;
-	         T *arrA=new T[marknum];
-	         int i=0;
-	         if ((a != 0)&&(b!=0))
-	         {
-		        inorder_walk(a->left);
-	          	arrA[i]=a->get_data();
-	          	i++;
-		        inorder_walk(a->right);
-	         }
-	         T *arrB=new T[marknum];
-	         i=0;
-	         if ((a != 0)&&(b!=0))
-	         {
-		        inorder_walk(b->left);
-	          	arrB[i]=b->get_data();
-	          	i++;
-		        inorder_walk(b->right);
-	          }
-	          for(int i=0;i<marknum;i++)
-	          {
-	          	if (arrA[i]!=arrB[i])
-	          	marker=false;
-	          }
-	          return marker;
-        }*/
+       
 private:
 	
 	TreeNode<T>* find_max(TreeNode<T>*) const;                                                                  
