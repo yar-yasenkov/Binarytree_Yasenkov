@@ -165,7 +165,7 @@ bool Tree<T>::input(string name)
 		while (!fin.eof())
 		{
 			fin >> a;
-			increase_number(this);
+			increase_number(*this);
 			insert_node(a);
 		}
 	}
