@@ -102,7 +102,10 @@ public:
 	}
 	return fin;
         }
-        
+        friend void increase_number (Tree<T> & tree)
+        {
+        	number++;
+        }
         /*friend bool operator ==(Tree<T> const & a, Tree<T> const & b) 
         {
 	         TreeNode<T>* roota=a.get_root();
@@ -160,7 +163,7 @@ bool Tree<T>::input(string name)
 		while (!fin.eof())
 		{
 			fin >> a;
-			marknum++;
+			increase_number(this);
 			insert_node(a);
 		}
 	}
