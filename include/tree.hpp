@@ -321,7 +321,7 @@ TreeNode<T>* Tree<T>::delete_node(TreeNode<T> *z)
                 {
                 	TreeNode<T>* a=z;
                 	if(a == nullptr)
-                          y=0;
+                          y=nullptr;
                         if(a->right!=nullptr)                                                /* если у нее есть правые дети, то следующий элемент - минимальный в правом поддереве */
                           return find_min(a->right);
                         y=a->parent;
