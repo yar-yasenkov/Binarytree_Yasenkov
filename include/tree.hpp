@@ -67,14 +67,14 @@ public:
         
      
         Tree();                                                    /* êîíñòðóêòîð */
+	TreeNode<T>* find_node(TreeNode<T>*, const T &);
 	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
 	bool input(string);
 	bool output(TreeNode<T>*);
-	bool inorder_walk(TreeNode<T>*);                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
-	TreeNode<T>* find_node(TreeNode<T>*, const T &);
+	bool inorder_walk(TreeNode<T>*) const;                    /* ïå÷àòàåò âñå êëþ÷è â íåóáûâàþùåì ïîðÿäêå */
+
 	TreeNode<T> *get_root();       
-        TreeNode<T>* find_max(TreeNode<T>*);         /* находит узел с минимальным значением ключа и возвращает указатель на него */                                                         
-        TreeNode<T>* find_min(TreeNode<T>*);
+        
         TreeNode<T>* delete_node(TreeNode<T> *);  
         friend ostream & operator<< (ostream &out, TreeNode<T> & n)
         {
@@ -117,6 +117,8 @@ public:
 	          return marker;
         }
 private:
+	TreeNode<T>* find_max(TreeNode<T>*) const;                                                                  
+        TreeNode<T>* find_min(TreeNode<T>*) const;
 	TreeNode<T> *root;                                  /* ñîáñòâåííî, ñàì êîðåíü */
 };
         
@@ -230,7 +232,7 @@ bool Tree<T>::insert_node(const T &x)
 
 
 template <typename T>
-bool Tree<T>::inorder_walk(TreeNode<T>* n) 
+bool Tree<T>::inorder_walk(TreeNode<T>* n) const
 {
 	bool marker=false;
 	if (n != 0)
@@ -249,7 +251,7 @@ TreeNode<T>* Tree<T>::get_root()
 	return root;
 }
 template <typename T>
-TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x)
+TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x) const
 {
         while(x->right!=0)                            
                 x=x->right;
@@ -257,7 +259,7 @@ TreeNode<T>* Tree<T>::find_max(TreeNode<T>* x)
 }
 
 template <typename T>
-TreeNode<T>* Tree<T>::find_min(TreeNode<T>* x)
+TreeNode<T>* Tree<T>::find_min(TreeNode<T>* x) const
 {
         while(x->left!=0)                             
                 x=x->left;
