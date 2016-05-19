@@ -202,6 +202,7 @@ bool Tree<T>::output(TreeNode<T>* n) const
 	return marker;
 }
 
+template <typename T>
 bool search(TreeNode<T>* n,const T & value) const
 {
 	if ( value == n->get_data())
