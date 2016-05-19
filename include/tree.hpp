@@ -201,6 +201,10 @@ bool Tree<T>::output(TreeNode<T>* n) const
 template <typename T>
 bool Tree<T>::search(TreeNode<T>* n,const T & value) const
 {
+	if (n==nullptr)
+	{
+		return false;
+	}
 	if ( value == n->get_data())
 	{
 		return true;
