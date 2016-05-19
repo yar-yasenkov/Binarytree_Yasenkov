@@ -62,7 +62,7 @@ public:
         
         Tree();                                                    /* êîíñòðóêòîð */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &) const;
-	bool search(TreeNode<T>*,const  T  &);
+	bool search(TreeNode<T>*,const  T  &) const;
 	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
 	bool input(const string &);
 	bool output(TreeNode<T>*) const;
@@ -199,7 +199,7 @@ bool Tree<T>::output(TreeNode<T>* n) const
 }
 
 template <typename T>
-bool Tree<T>::search(TreeNode<T>* n,const T & value)
+bool Tree<T>::search(TreeNode<T>* n,const T & value) const
 {
 	if ( value == n->get_data())
 	{
