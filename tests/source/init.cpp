@@ -96,14 +96,14 @@ SCENARIO("Exception out","[exceptout]") {
 }
 
 SCENARIO("Delete","[delete]") {
-	 bool marker=true;
+	// bool marker=false;
 	 Tree<int> inttree;
-	 Tree<int> result;
 	 inttree.input("in.txt");
-	 inttree.inorder_walk(inttree.get_root());
+	 //удаление корня
 	 inttree.delete_node(inttree.get_root());
-	 inttree.inorder_walk(inttree.get_root());
+	 REQUIRE(inttree.search(inttree.get_root(),3));
+	 
 	
-	 REQUIRE(marker);
+	 //REQUIRE(marker);
 }
 
