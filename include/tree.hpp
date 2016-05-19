@@ -62,7 +62,7 @@ public:
         
         Tree();                                                    /* êîíñòðóêòîð */
 	TreeNode<T>* find_node(TreeNode<T>*, const T &) const;
-	bool search(TreeNode<T>*, const T &);
+	bool search(TreeNode<T>*,  T const &);
 	bool insert_node(const T &);                         /* âñòàâëÿåò óçåë */
 	bool input(const string &);
 	bool output(TreeNode<T>*) const;
