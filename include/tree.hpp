@@ -79,7 +79,7 @@ public:
         friend ostream & operator<< (ostream &out,const Tree<T> & tree)
         {
 	TreeNode<T>* roottree=tree.get_root();
-	if (n!=0)
+	if (roottree!=0)
 	{
 		inorder_walk(roottree->left);
 		cout << roottree->get_data() << endl;
